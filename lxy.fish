@@ -18,7 +18,7 @@ function lxy
   __check_dep "bat"
   __check_dep "htmlq"
 
-  set _DATA (curl --silent https://learnxinyminutes.com/ | htmlq ".name" | htmlq "a"  --attribute href | cat | string trim -c /)
+ set _DATA (curl --silent https://learnxinyminutes.com/ | htmlq ".name" | htmlq "a"  --attribute href | cat | string trim -c /)
   if contains $argv[1] $_DATA
     curl --silent "https://learnxinyminutes.com/$argv[1]" |  htmlq "pre" --text | bat --language $argv[1]
   else
